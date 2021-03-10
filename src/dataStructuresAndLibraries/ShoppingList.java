@@ -3,36 +3,32 @@ package dataStructuresAndLibraries;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Vector;
 import java.util.stream.Collectors;
+
 
 public class ShoppingList {
     public static void main(String[] args) throws IOException {
 
-        ArrayList<String> itens = new ArrayList<>();
-        ArrayList<String> itens2 = new ArrayList<>();
-        ArrayList<String> itens3 = new ArrayList<>();
-        Scanner sc = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        for(int i=0; i<5; i++){
-            itens.add(sc.nextLine());
+        int tamanho = Integer.parseInt(br.readLine());
+
+        List<String> listaDeCompras = new Vector<>();
+
+        for (int i = 0; i < tamanho; i++) {
+            listaDeCompras.add(br.readLine());
         }
 
-        for(int i=0; i<2; i++){
-            itens2.add(sc.nextLine());
-        }
+        listaDeCompras.forEach(valor -> {
+            System.out.println(Arrays.stream(valor.split(" "))
+                    .collect(Collectors.toSet())
+                    .stream()
+                    .sorted()
+                    .collect(Collectors.joining(" ")));
+        });
 
-        for(int i=0; i<4; i++){
-            itens3.add(sc.nextLine());
-        }
-        System.out.println(itens.stream()
-                .distinct()
-                .collect(Collectors.joining(" ")));
-        System.out.println(itens2.stream()
-                .distinct()
-                .collect(Collectors.joining(" ")));
-        System.out.println(itens3.stream()
-                .distinct()
-                .collect(Collectors.joining(" ")));
     }
 }
