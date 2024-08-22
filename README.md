@@ -1,3 +1,3 @@
-# UriOnlineJudge
+# UriOnlineJudge Java
 
-## Desafios para estudo em Java
+## Desafios para estudo em Java DDD
